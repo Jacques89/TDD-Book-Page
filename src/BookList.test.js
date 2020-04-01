@@ -20,4 +20,15 @@ describe('BookList', () => {
         const wrapper = shallow(<BookList {...props}/>)
         expect(wrapper.find('.error').length).toEqual(1)
     })
+
+    it('Shows a list of books', () => {
+        const props = {
+            books: [
+                {name: "Refactoring", id: 1},
+                {name: "Building Micro-service", id: 2}
+            ]
+        }
+        const wrapper = shallow(<BookList {...props}/>)
+        expect(wrapper.find('.book .title').length).toEqual(2)
+      })
 })
