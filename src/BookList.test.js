@@ -5,7 +5,7 @@ import BookList from './BookList'
 describe('BookList', () => {
   it('Shows a loading bar when loading', () => {
         const props = {
-        loading: true
+            loading: true
         }
         const wrapper = shallow(<BookList {...props}/>)
         expect(wrapper.find('.loading').length).toEqual(1)
@@ -25,10 +25,11 @@ describe('BookList', () => {
         const props = {
             books: [
                 {name: "Refactoring", id: 1},
-                {name: "Building Micro-service", id: 2}
+                {name: "Domain-driven design", id:2},
+                {name: "Building Micro-service", id: 3}
             ]
         }
         const wrapper = shallow(<BookList {...props}/>)
-        expect(wrapper.find('.book .title').length).toEqual(2)
+        expect(wrapper.find('.book .title').length).toEqual(3)
       })
 })

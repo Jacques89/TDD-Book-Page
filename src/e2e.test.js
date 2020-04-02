@@ -18,9 +18,9 @@ describe('Bookish', () => {
 
     beforeEach(() => {
         const books = [
-            {"name": "Refactoring", "id": 1},
-            {"name": "Domain-driven design", "id": 2},
-            {"name": "Building Micro-service", "id": 3}
+            {"name": "Refactoring", "id": 1, "description": "Refactoring"},
+            {"name": "Domain-driven design", "id": 2, "description": "Domain-drive design"},
+            {"name": "Building Micro-service", "id": 3, "description": "Building Micro-Service"}
         ]
     
         return books.map(item => axios.post('http://localhost:8080/books', item, {headers: { 'Content-Type': 'application/json' }}))
@@ -46,6 +46,29 @@ describe('Bookish', () => {
         expect(books[0]).toEqual('Refactoring')
         expect(books[1]).toEqual('Domain-driven design')
         expect(books[2]).toEqual('Building Micro-service')
+    })
+
+    test('Goto book detail page', async () => {
+        await page.goto(`${appUrlBase}/`)
+        await page.waitForSelector('a.view-detail')
+
+        const links = await page.evaluate(() => {
+            return [...document.querySelectorAll('a.view-detail')].map(el => el.getAttribute('href'))
+          })
+
+        await Promise.all([
+            page.waitForNavigation({waitUntil: 'networkidle2'}),
+            page.goto(`${appUrlBase}${links[0]}`)
+        ])
+
+        const url = await page.evaluate('location.href')
+        expect(url).toEqual(`${appUrlBase}/books/1`)
+
+        await page.waitForSelector('.description')
+        const result = await page.evaluate(() => {
+            return document.querySelector('.description').innerText
+        })
+        expect(result).toEqual('Refactoring')
     })
 })
 

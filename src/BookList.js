@@ -14,6 +14,9 @@ function BookList({loading, error, books}) {
         books.map(book => {
           return (<div className="book" key={book.id}>
             <h2 className="title">{book.name}</h2>
+            <a href={`/books/${book.id}`} className="view-detail">
+              View Details
+            </a>
           </div>)
         })
       }
