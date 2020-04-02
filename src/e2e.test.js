@@ -19,7 +19,7 @@ describe('Bookish', () => {
     beforeEach(() => {
         const books = [
             {"name": "Refactoring", "id": 1, "description": "Refactoring"},
-            {"name": "Domain-driven design", "id": 2, "description": "Domain-drive design"},
+            {"name": "Domain Driven Design", "id": 2, "description": "Domain Drive Design"},
             {"name": "Building Micro-service", "id": 3, "description": "Building Micro-Service"}
         ]
     

@@ -26,7 +26,7 @@ describe('BookList', () => {
         const props = {
             books: [
                 {name: "Refactoring", id: 1},
-                {name: "Domain-driven design", id:2},
+                {name: "Domain Driven Design", id:2},
                 {name: "Building Micro-service", id: 3}
             ]
         }

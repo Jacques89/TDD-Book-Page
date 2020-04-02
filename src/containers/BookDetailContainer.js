@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import BookDetail from './BookDetail'
+import BookDetail from '../components/BookDetail/index'
 
 class BookDetailContainer extends Component {
     constructor(props) {
