@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import BookDetail from './BookDetail'
 
 class BookDetailContainer extends Component {
     constructor(props) {
@@ -19,11 +20,8 @@ class BookDetailContainer extends Component {
     }
 
     render() {
-        const { book } = this.state
         return(
-            <div className="detail">
-                <div className="description">{book.description}</div>
-            </div>
+            <BookDetail {...this.state} />
         )
     }
 }
