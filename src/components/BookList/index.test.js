@@ -32,5 +32,5 @@ describe('BookList', () => {
         }
         const wrapper = shallow(<BookList {...props}/>)
         expect(wrapper.find('.book .title').length).toEqual(3)
-      })
+    })
 })

@@ -44,7 +44,7 @@ describe('Bookish', () => {
 
         expect(books.length).toEqual(3)
         expect(books[0]).toEqual('Refactoring')
-        expect(books[1]).toEqual('Domain-driven design')
+        expect(books[1]).toEqual('Domain Driven Design')
         expect(books[2]).toEqual('Building Micro-service')
     })
 
